@@ -50,7 +50,7 @@ git stash push --all --keep-index > /dev/null || exit 1
 
 precommit=$(git config hooks.precommit)
 [ -z "$precommit" ] || {
-  cmd=($precommit "$staged_files")
+  cmd=("$precommit" "$staged_files")
   "${cmd[@]}"
 }
 errors=$?
