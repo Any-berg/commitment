@@ -43,6 +43,7 @@ prestash=$(git config hooks.prestash)
 [ -z "$prestash" ] || {
   cmd=($prestash)
   "${cmd[@]}"
+  staged_files=$(git diff --cached --name-status)
 }
 
 # stash away untracked and unstaged files
